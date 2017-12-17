@@ -1,0 +1,20 @@
+{
+    "name": "mixcm/passportlib",
+    "description": "The passport library for passport Authserver.",
+    "type": "library",
+    "require": {
+        "php": ">=5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tianle Xu",
+            "email": "xtl@xtlsoft.top"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mixcm\\PassportLib\\": "./src/"
+        }
+    }
+}
