@@ -1,3 +1,4 @@
+
 <?php
     /**
      * Mixcm PassportLib
@@ -51,6 +52,17 @@
                         return false;
                     }
 
+                    break;
+                
+                case 'plain':
+                    
+                    $pass = $password;
+                    if($input == $pass){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                    
                     break;
                 
                 default:
