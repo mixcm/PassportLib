@@ -1,4 +1,3 @@
-
 <?php
     /**
      * Mixcm PassportLib
@@ -13,9 +12,13 @@
     
     class Password {
 
-        public function encrypt($password, $salt){
+        public function encrypt($password, $salt, $algo = "x"){
 
-            $password = hash('sha512', ( 'password' . $password . $salt));
+            if($algo != "x"){
+                throw new \Exception('Mixcm_PassportLib_Error: Undefined Algorithm : '.$algo);
+            }
+
+            $password = hash('sha512', $password);
             $password = hash('sha512', ($salt . $password . 'password') );
             $password = hash('sha512', ('algox' . $salt . $password . 'algox'));
             $password = base64_encode($password);
@@ -41,7 +44,7 @@
                     $pass = $pass1[0];
                     $salt = base64_decode($pass1[1]);
 
-                    $input = hash('sha512', ( 'password' . $input . $salt));
+                    $input = hash('sha512', $input);
                     $input = hash('sha512', ($salt . $input . 'password') );
                     $input = hash('sha512', ('algox' . $salt . $input . 'algox'));
                     $input = base64_encode($input);
